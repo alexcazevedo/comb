@@ -68,6 +68,10 @@ Confine the harness to the worktree.
   Decisions / Blockers. Rewrite, never append.
 - Read the implementer report (≤200 words). If it flags something affecting
   other tickets, update those tickets now, before dispatching them.
+- Copy the report's "For dependents:" block into every ticket that lists
+  this one in `depends_on`, as a `## Handoff from NN` section at the end
+  of the file. Dependents then start with the real names, not the planned
+  ones. (With `hive` on PATH, `hive run` carries this as `dep_handoffs`.)
 
 ## Integration
 

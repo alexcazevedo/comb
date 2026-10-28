@@ -28,5 +28,10 @@ The loop, bounded by the ticket's `max_attempts`:
 Never: edit a check to make it pass, skip a check, touch files outside the
 ticket's scope, or claim success without exit code 0.
 
+Honour the ticket's `## Interface`: create exactly those names; if one has
+to change, say so under "For dependents" — never silently rename.
+
 Report back in ≤200 words: what changed (files, one line each), per-check
-pass/fail, attempts used, anything discovered that affects other tickets.
+pass/fail, attempts used, anything discovered that affects other tickets. End with a
+"For dependents:" block (≤5 lines): the exact names, paths, commands and
+gotchas a ticket that depends on this one must know.

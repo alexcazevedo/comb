@@ -10,8 +10,14 @@ files: []               # expected touch set; disjoint across parallel tickets
 One sentence.
 
 ## Context
-≤150 words. Everything the agent needs that isn't in the files. No links to
-chat history.
+Word cap by mode: prototype 150 | mvp 250 | production 350. Everything the
+agent needs that isn't in the files, including the exact names it consumes
+from upstream tickets. No links to chat history.
+
+## Interface
+Exact names this ticket creates for dependents: file paths, functions and
+signatures, element ids, env vars, commands and flags, storage keys, ports.
+`none` if nothing downstream consumes it.
 
 ## Checks (run in order — cheapest first)
 1. `<lint command>`
@@ -24,3 +30,6 @@ chat history.
 
 ## Not included
 - <explicit scope boundary so the agent doesn't gold-plate>
+
+<!-- forge:run appends `## Handoff from NN` sections here as upstream
+     tickets finish; leave them in place. -->

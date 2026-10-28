@@ -20,6 +20,28 @@ downstream. If the current session model is weaker, say so before planning.
 - If parallel execution is plausible, make `files:` sets disjoint between
   independent tickets — parallel agents colliding on shared files is the #1
   documented multi-agent failure mode.
+- Count by mode: prototype 3–6 tickets, mvp 5–10, production as needed.
+  More than that is two milestones — split PRODUCT.md instead.
+- Shape that works: independent foundations → integration → one final
+  verification ticket that runs PRODUCT.md's Success demo as checks and
+  depends on everything else (mvp and up) → docs/run instructions last.
+- Prefer zero new dependencies per ticket unless PRODUCT.md names them;
+  the stdlib or what the repo already uses wins.
+
+## Interface contracts (what makes a ticket self-contained)
+
+The implementer sees only its ticket, PRODUCT.md and the listed files. So
+every name two tickets share must be written down in both:
+
+- The producing ticket lists under `## Interface` the exact names it
+  creates for others: file paths, exported functions and signatures,
+  element ids, env vars, CLI commands and flags, storage keys, ports.
+- A dependent ticket restates the names it consumes in its Context ("uses
+  `#todo-form`, `#todo-input` from ticket 02") — never "see ticket 02".
+- Pick the names at plan time. If you cannot name an interface yet, the
+  slice is wrong; split or reorder until you can.
+- Context cap by mode: prototype 150 words, mvp 250, production 350. Spend
+  them on contracts and constraints, not on motivation.
 
 ## Ticket fields
 
@@ -52,6 +74,20 @@ Tag `model: local` only when PRODUCT.md says `routing_profile: cloud+local`,
 and only on haiku-class tickets. Never silently substitute local for cloud
 or cloud for local. Execution mechanics live in forge:run — the plan only
 tags.
+
+## Self-check before the summary
+
+Validate the ticket set mechanically before showing it. Fix and recheck,
+do not hand the user a broken plan:
+
+- every `depends_on` id exists; no cycles; ids unique
+- `files:` disjoint between tickets that are not ordered by `depends_on`
+- every ticket has ≥1 executable check; test checks only mvp and up
+- `max_attempts` matches the mode; `model` is one of the four tiers
+- every shared name appears in a producer's `## Interface` and in each
+  consumer's Context
+- a `hive` binary on PATH: `hive init tickets/` must load the set (it
+  rejects duplicate ids, unknown deps and cycles)
 
 ## Output + gate
 
