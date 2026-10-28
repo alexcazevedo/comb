@@ -5,7 +5,7 @@
 
 ## Next
 - none. Prototype finish: all checks green = done, approval budget spent at plan.
-- Not committed yet. To use /forge:auto: bump version, push, `claude plugin marketplace update forge-marketplace && claude plugin update forge`, restart — or `claude --plugin-dir ~/dev/forge`.
+- Not committed yet. To use /forge:auto: bump version, push, `claude plugin marketplace update forge-marketplace && claude plugin update forge`, restart — or `claude --plugin-dir ~/dev/hive-forge`.
 
 ## Decisions
 - Execution: sequential in place.

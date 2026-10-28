@@ -31,6 +31,6 @@ AGREE / DIVERGE / ESCALATE answers.
 Done when I can run `/forge:auto prototype "<vision>"` in a scratch repo and
 get PRODUCT.md with `owner: agent` and a tagged grill log, tickets, a
 completed run with zero human prompts, and a divergence count in the final
-report — with `claude plugin validate ~/dev/forge --strict` still passing.
+report — with `claude plugin validate ~/dev/hive-forge --strict` still passing.
 
 <!-- design decisions already taken: docs/discovery-auto-owner.md -->

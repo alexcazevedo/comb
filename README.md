@@ -1,5 +1,7 @@
 # forge
 
+The process layer of [hive](https://github.com/alexazevedo/hive): idea → spec → tickets → bounded execution. Installs on its own as the `forge` plugin for Claude Code and Codex; the hive app and `hive` protocol CLI are optional and live in the hive repo.
+
 Right-sized, spec-driven delivery for Claude Code and Codex. A raw idea becomes
 shipped code via grilling → agent-optimized tickets → model-routed subagent
 execution with bounded verification loops. The core primitive is a **rigor
@@ -76,16 +78,16 @@ approval requires an interactive reply via terminal or Remote Control.
 Claude Code:
 
 ```bash
-git clone https://github.com/alexazevedo/forge ~/dev/forge
-claude --plugin-dir ~/dev/forge        # try it in one session
+git clone https://github.com/alexazevedo/hive-forge ~/dev/hive-forge
+claude --plugin-dir ~/dev/hive-forge        # try it in one session
 # or add to your marketplace / plugin config for permanent install
-claude plugin validate ~/dev/forge --strict
+claude plugin validate ~/dev/hive-forge --strict
 ```
 
 Codex, from a local clone:
 
 ```bash
-codex plugin marketplace add ~/dev/forge
+codex plugin marketplace add ~/dev/hive-forge
 codex plugin add forge@forge-marketplace
 ```
 
