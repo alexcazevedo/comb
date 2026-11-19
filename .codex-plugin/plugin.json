@@ -6,8 +6,8 @@
     "name": "aazevedo",
     "url": "https://github.com/alexazevedo"
   },
-  "homepage": "https://github.com/alexcazevedo/hive-comb",
-  "repository": "https://github.com/alexcazevedo/hive-comb",
+  "homepage": "https://github.com/alexcazevedo/comb",
+  "repository": "https://github.com/alexcazevedo/comb",
   "license": "MIT",
   "keywords": ["planning", "delivery", "subagents", "prototyping"],
   "skills": "./skills/",
@@ -18,7 +18,7 @@
     "developerName": "aazevedo",
     "category": "Developer Tools",
     "capabilities": ["Planning", "Write", "Multi-agent"],
-    "websiteURL": "https://github.com/alexcazevedo/hive-comb",
+    "websiteURL": "https://github.com/alexcazevedo/comb",
     "defaultPrompt": [
       "Turn this product idea into a right-sized spec.",
       "Plan this PRODUCT.md as executable tickets.",

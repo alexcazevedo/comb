@@ -13,11 +13,11 @@ End-to-end smoke: `/comb:auto prototype` in a scratch repo completes with zero p
 Scratch dir: `S=/tmp/comb-auto-smoke`; `rm -rf $S && mkdir -p $S && cd $S && git init -q`. macOS has no `timeout`; one Bash call caps at 10 minutes; the nested run takes 5–15 minutes. So launch in the background and poll:
 
 ```
-cd $S && nohup perl -e 'alarm 1200; exec @ARGV' claude -p --permission-mode auto --plugin-dir ~/dev/hive-comb "/comb:auto prototype 'a tiny CLI that prints the current time in three cities'" > $S/smoke.log 2>&1 &
+cd $S && nohup perl -e 'alarm 1200; exec @ARGV' claude -p --permission-mode auto --plugin-dir ~/dev/comb "/comb:auto prototype 'a tiny CLI that prints the current time in three cities'" > $S/smoke.log 2>&1 &
 echo $! > $S/pid
 ```
 
-Then poll in separate Bash calls of ≤8 minutes each (`while kill -0 $(cat $S/pid) 2>/dev/null; do sleep 30; done`) until the process exits or 20 minutes pass. Verified beforehand: a nested `claude -p --plugin-dir ~/dev/hive-comb` from inside a session works and lists comb:auto. The listed files are fix scope only: if a check fails because of prompt wording (owner output not parsed, log not written, report missing), adjust the wording and rerun once. Never edit the checks. Do not fix the generated toy project. Include the tail of smoke.log in the report if anything fails.
+Then poll in separate Bash calls of ≤8 minutes each (`while kill -0 $(cat $S/pid) 2>/dev/null; do sleep 30; done`) until the process exits or 20 minutes pass. Verified beforehand: a nested `claude -p --plugin-dir ~/dev/comb` from inside a session works and lists comb:auto. The listed files are fix scope only: if a check fails because of prompt wording (owner output not parsed, log not written, report missing), adjust the wording and rerun once. Never edit the checks. Do not fix the generated toy project. Include the tail of smoke.log in the report if anything fails.
 
 ## Checks (run in order — cheapest first)
 1. `test -f /tmp/comb-auto-smoke/PRODUCT.md && grep -q '^owner: agent' /tmp/comb-auto-smoke/PRODUCT.md`

@@ -15,7 +15,7 @@ comb:grill routes every grill question to the owner agent when `owner: agent` is
 Notes from ticket 01: the `## Grill log` table sits outside the body word cap — do not count it. On ESCALATE the owner's ANSWER already carries the smallest-scope option, so prototype just uses it. YAML frontmatter descriptions containing `: ` must be double-quoted (validate does not catch this).
 
 ## Checks (run in order — cheapest first)
-1. `claude plugin validate ~/dev/hive-comb --strict`
+1. `claude plugin validate ~/dev/comb --strict`
 2. `grep -q 'owner: agent' skills/grill/SKILL.md && grep -q 'Grill log' skills/grill/SKILL.md && grep -q 'comb:owner' skills/grill/SKILL.md`
 3. `test $(wc -l < skills/grill/SKILL.md) -le 75`
 

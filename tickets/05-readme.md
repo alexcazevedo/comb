@@ -15,7 +15,7 @@ README documents comb:auto, the owner proxy, gate authority by mode, profile set
 Notes from ticket 04: a headless production run ends at each human gate (spec, plan, final); re-running `/comb:auto` shows the gate again and approval needs an interactive reply (terminal or Remote Control) — say so in one sentence under the table. REPORT.md is rewritten whenever auto stops, and its last printed line is `<path>/REPORT.md — AGREE a, DIVERGE d, ESCALATE e`.
 
 ## Checks (run in order — cheapest first)
-1. `claude plugin validate ~/dev/hive-comb --strict`
+1. `claude plugin validate ~/dev/comb --strict`
 2. `grep -q 'comb:auto' README.md && grep -q 'owner.md' README.md && grep -q 'permission-mode auto' README.md`
 
 ## Done when

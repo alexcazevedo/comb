@@ -21,7 +21,7 @@ New `/comb:auto [mode] "<vision>"` skill: sets `owner: agent`, chains grill → 
 Notes from ticket 01: double-quote the `description:` value in the frontmatter (validate does not catch YAML breakage). Owner output contract: `ANSWER:` / `TAG: AGREE|DIVERGE|ESCALATE` / `REASON:`; approval = `APPROVE` tagged AGREE or objections tagged DIVERGE. The grill log lives in PRODUCT.md `## Grill log` and is outside the body word cap.
 
 ## Checks (run in order — cheapest first)
-1. `claude plugin validate ~/dev/hive-comb --strict`
+1. `claude plugin validate ~/dev/comb --strict`
 2. `grep -q '^name: auto' skills/auto/SKILL.md && grep -q 'REPORT.md' skills/auto/SKILL.md && grep -q 'owner: agent' skills/auto/SKILL.md`
 3. `test $(wc -l < skills/auto/SKILL.md) -le 60 && test $(cat skills/*/SKILL.md | wc -l) -le 600`
 

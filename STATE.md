@@ -5,7 +5,7 @@
 
 ## Next
 - none. Prototype finish: all checks green = done, approval budget spent at plan.
-- Not committed yet. To use /comb:auto: bump version, push, `claude plugin marketplace update comb-marketplace && claude plugin update comb`, restart — or `claude --plugin-dir ~/dev/hive-comb`.
+- Not committed yet. To use /comb:auto: bump version, push, `claude plugin marketplace update comb-marketplace && claude plugin update comb`, restart — or `claude --plugin-dir ~/dev/comb`.
 
 ## Decisions
 - Execution: sequential in place.

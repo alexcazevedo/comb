@@ -78,18 +78,18 @@ approval requires an interactive reply via terminal or Remote Control.
 Claude Code:
 
 ```bash
-git clone https://github.com/alexcazevedo/hive-comb ~/dev/hive-comb
-claude --plugin-dir ~/dev/hive-comb        # try it in one session
+git clone https://github.com/alexcazevedo/comb ~/dev/comb
+claude --plugin-dir ~/dev/comb        # try it in one session
 # or install permanently from the marketplace
-claude plugin marketplace add alexcazevedo/hive-comb
+claude plugin marketplace add alexcazevedo/comb
 claude plugin install comb@comb-marketplace
-claude plugin validate ~/dev/hive-comb --strict
+claude plugin validate ~/dev/comb --strict
 ```
 
 Codex, from a local clone:
 
 ```bash
-codex plugin marketplace add ~/dev/hive-comb
+codex plugin marketplace add ~/dev/comb
 codex plugin add comb@comb-marketplace
 ```
 

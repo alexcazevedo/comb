@@ -19,7 +19,7 @@ Add the owner-proxy agent definition, the owner profile template, and the `owner
 `templates/PRODUCT.md`: add `owner: human                  # human | agent (set by comb:auto)` after `parallel_default`; append optional `## Grill log` with table header `| # | question | recommendation | answer | tag |` and comment "present only when owner: agent".
 
 ## Checks (run in order — cheapest first)
-1. `claude plugin validate ~/dev/hive-comb --strict`
+1. `claude plugin validate ~/dev/comb --strict`
 2. `grep -q '^tools:.*Skill' agents/owner.md && grep -q '^model: opus' agents/owner.md`
 3. `grep -q '^owner: human' templates/PRODUCT.md && grep -q '^## Grill log' templates/PRODUCT.md && test -f templates/owner.md`
 

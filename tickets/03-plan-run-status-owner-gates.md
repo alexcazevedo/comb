@@ -21,7 +21,7 @@ status: header line becomes `comb: <product> [mode] [owner: human|agent]`; when 
 Notes from ticket 01: the owner answers an approval request with `ANSWER: APPROVE` tagged AGREE, or a ≤5-line objection list tagged DIVERGE — parse it that way. YAML frontmatter descriptions containing `: ` must be double-quoted (validate does not catch this).
 
 ## Checks (run in order — cheapest first)
-1. `claude plugin validate ~/dev/hive-comb --strict`
+1. `claude plugin validate ~/dev/comb --strict`
 2. `grep -q 'owner: agent' skills/plan/SKILL.md && grep -q 'owner: agent' skills/run/SKILL.md && grep -q 'owner' skills/status/SKILL.md`
 3. `test $(cat skills/*/SKILL.md | wc -l) -le 600`
 

@@ -5,7 +5,7 @@ an already-answered grill question.
 
 ## Dial
 - mode: **prototype**
-- greenfield: no — existing repo `~/dev/hive-comb` (the plugin itself)
+- greenfield: no — existing repo `~/dev/comb` (the plugin itself)
 - routing_profile: cloud, parallel_default: sequential
 
 ## Who / job
@@ -64,4 +64,4 @@ question and holding gate authority according to the mode.
 Done when `/comb:auto prototype "<vision>"` in a scratch repo produces
 PRODUCT.md with `owner: agent` and a tagged grill log, tickets, runs to
 completion with zero human prompts, and prints a report with the divergence
-count — and `claude plugin validate ~/dev/hive-comb --strict` passes.
+count — and `claude plugin validate ~/dev/comb --strict` passes.
