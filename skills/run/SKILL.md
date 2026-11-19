@@ -1,9 +1,9 @@
 ---
 name: run
-description: Use after tickets are approved to dispatch implementer subagents with bounded implement→check→fix loops. Triggers on /forge:run, $forge:run, or "continue" from forge:status.
+description: Use after tickets are approved to dispatch implementer subagents with bounded implement→check→fix loops. Triggers on /comb:run, $comb:run, or "continue" from comb:status.
 ---
 
-# forge:run — dispatch + loop
+# comb:run — dispatch + loop
 
 Read PRODUCT.md and tickets/. Ask exactly ONE question before dispatching:
 
@@ -28,7 +28,7 @@ agent primitives; do not ask the user which host is running.
 - Claude Code: select the custom agent definition from the ticket's `model:`
   field → agents/implementer-{haiku,sonnet,opus}.md.
 - Codex: spawn a fresh worker subagent at the corresponding routing tier from
-  forge:plan. Include the BODY (everything after frontmatter) of the matching
+  comb:plan. Include the BODY (everything after frontmatter) of the matching
   agents/implementer-{haiku,sonnet,opus}.md in the prompt as role
   instructions. If exact model selection is unavailable, use the inherited
   model and preserve the selected role instructions; the Claude model labels

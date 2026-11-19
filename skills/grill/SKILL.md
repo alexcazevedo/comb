@@ -1,9 +1,9 @@
 ---
-name: idea
-description: Use when the user brings a raw product idea to forge — grills it into a right-sized PRODUCT.md. Triggers on /forge:idea, $forge:idea, a new product idea, or "let's build X" with no spec yet.
+name: grill
+description: Use when the user brings a raw product idea to comb — grills it into a right-sized PRODUCT.md. Triggers on /comb:grill, $comb:grill, a new product idea, or "let's build X" with no spec yet.
 ---
 
-# forge:idea — grill the raw idea
+# comb:grill — grill the raw idea
 
 Turn a raw idea into PRODUCT.md. Nothing else: no tickets, no code, no
 architecture debate.
@@ -38,19 +38,19 @@ don't ask — confirm in passing.
   can state the idea sharply. The cap is a ceiling, not a quota.
 - Grill on: who it's for, the one job it must do, what's explicitly out,
   what "done" looks like. Never grill on implementation detail — that is
-  forge:plan's job.
+  comb:plan's job.
 
 ## Owner proxy (owner: agent)
 
 If `owner: agent` (PRODUCT.md frontmatter or the prompt), ask the user
-nothing. Dispatch `forge:owner` per question (Agent tool; Codex: inline
-`agents/owner.md`'s body) with vision, `~/.forge/owner.md` if present,
+nothing. Dispatch `comb:owner` per question (Agent tool; Codex: inline
+`agents/owner.md`'s body) with vision, `~/.comb/owner.md` if present,
 PRODUCT.md and grill log so far, the question + your recommendation, and
 the mode — never asked of the owner. Parse `ANSWER`/`TAG`/`REASON`; append
 a row to `## Grill log`. Caps still apply. ESCALATE: prototype takes
 ANSWER's smallest-scope option and logs it; mvp/production stop, write
 STATE.md Blockers, tell the user. Gate unchanged: prototype/mvp say
-"next: /forge:plan"; production shows PRODUCT.md and waits for the human.
+"next: /comb:plan"; production shows PRODUCT.md and waits for the human.
 
 ## Output: PRODUCT.md
 
@@ -63,5 +63,5 @@ can ___", one sentence). Respect the mode's word cap.
 ## Gate
 
 - production: show PRODUCT.md, get explicit approval. (Approval 1 of 3.)
-- prototype / mvp: NO approval here — say "next: /forge:plan". Spec and
+- prototype / mvp: NO approval here — say "next: /comb:plan". Spec and
   tickets are approved together there. One interruption, not two.

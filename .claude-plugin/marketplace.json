@@ -1,12 +1,12 @@
 {
-  "name": "forge-marketplace",
-  "description": "forge Claude Code plugin.",
+  "name": "comb-marketplace",
+  "description": "comb Claude Code plugin.",
   "owner": {
     "name": "aazevedo"
   },
   "plugins": [
     {
-      "name": "forge",
+      "name": "comb",
       "source": "./",
       "description": "Right-sized, spec-driven delivery: rigor dial, grilled PRODUCT.md, agent-ready tickets, model-routed bounded execution."
     }

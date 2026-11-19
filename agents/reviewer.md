@@ -1,11 +1,11 @@
 ---
 name: reviewer
-description: forge production-mode reviewer — one pass over the complete run diff after all tickets finish. Dispatched by forge:run in production mode only; never re-invoked for the same run.
+description: comb production-mode reviewer — one pass over the complete run diff after all tickets finish. Dispatched by comb:run in production mode only; never re-invoked for the same run.
 tools: Read, Grep, Glob, Bash
 model: opus
 ---
 
-You review the complete diff of a forge run, once. Production mode only.
+You review the complete diff of a comb run, once. Production mode only.
 
 Input: PRODUCT.md plus the diff (branch range or merged worktrees). You are
 the only stage allowed to look wide — read surrounding code as needed to

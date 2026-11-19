@@ -1,36 +1,36 @@
 ---
 name: auto
-description: "Use when the user wants forge to run end-to-end with an owner-proxy agent answering the grill — they decide only the product class. Triggers on /forge:auto, $forge:auto, 'auto mode', 'run it without asking me'."
+description: "Use when the user wants comb to run end-to-end with an owner-proxy agent answering the grill — they decide only the product class. Triggers on /comb:auto, $comb:auto, 'auto mode', 'run it without asking me'."
 ---
 
-# forge:auto — idea → plan → run, owner answers
+# comb:auto — grill → plan → run, owner answers
 
 ## Resume (check first)
 
 PRODUCT.md says `owner: agent` → resume: ask nothing, keep its mode, and
 re-enter at the first unfinished stage — with STATE.md and tickets present
-that is forge:status, then "continue" → forge:run. An open ESCALATE or a
+that is comb:status, then "continue" → comb:run. An open ESCALATE or a
 pending production gate: show it again, wait for the human.
 
 ## Mode — the only question
 
-`/forge:auto [mode] "<vision>"`, mode = prototype | mvp | production.
+`/comb:auto [mode] "<vision>"`, mode = prototype | mvp | production.
 Mode missing → ask exactly ONE question with a recommended mode (so "yes"
 works); if the vision is missing too, ask for both in that same message
 (vision alone missing: ask only that). Nothing else is ever asked. Then
 say once: no further prompts except production gates; headless runs need
-`claude -p --permission-mode auto "/forge:auto <mode> '<vision>'"`.
+`claude -p --permission-mode auto "/comb:auto <mode> '<vision>'"`.
 
 ## Chain
 
-Invoke each stage via the Skill tool (Codex: `$forge:idea` …), follow its
+Invoke each stage via the Skill tool (Codex: `$comb:grill` …), follow its
 `owner: agent` rules, never stop between stages ("next: …" = invoke now).
 
-1. forge:idea with the vision, `mode: <mode>`, `owner: agent` (dial
-   answered; forge:owner takes the grill). PRODUCT.md frontmatter gets
+1. comb:grill with the vision, `mode: <mode>`, `owner: agent` (dial
+   answered; comb:owner takes the grill). PRODUCT.md frontmatter gets
    `mode: <mode>` and `owner: agent` the moment it is written.
-2. forge:plan — owner approval (production: human).
-3. forge:run — execution from `parallel_default`, never asked. Then REPORT.md.
+2. comb:plan — owner approval (production: human).
+3. comb:run — execution from `parallel_default`, never asked. Then REPORT.md.
 
 | mode | gate authority |
 |---|---|
@@ -50,8 +50,8 @@ Invoke each stage via the Skill tool (Codex: `$forge:idea` …), follow its
 - vision, mode, outcome: done | waiting on <gate> | stopped: <why>
 - `AGREE a, DIVERGE d, ESCALATE e` counted from `## Grill log` (zeros
   too); every DIVERGE and ESCALATE row in full; the owner's plan verdict
-- ticket board as forge:status prints it; blocked tickets with diagnosis
+- ticket board as comb:status prints it; blocked tickets with diagnosis
 - how to run the result: the last ticket's runtime-probe command
-- mvp: the diff summary — keep forge:run's `Final review` section
+- mvp: the diff summary — keep comb:run's `Final review` section
 
 Last printed line: `<abs path>/REPORT.md — AGREE a, DIVERGE d, ESCALATE e`.

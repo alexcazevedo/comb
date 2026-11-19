@@ -1,11 +1,11 @@
-# STATE — forge:auto owner-proxy (prototype)
+# STATE — comb:auto owner-proxy (prototype)
 
 ## Now
 - idle — all 6 tickets done, smoke green (2026-09-26)
 
 ## Next
 - none. Prototype finish: all checks green = done, approval budget spent at plan.
-- Not committed yet. To use /forge:auto: bump version, push, `claude plugin marketplace update forge-marketplace && claude plugin update forge`, restart — or `claude --plugin-dir ~/dev/hive-forge`.
+- Not committed yet. To use /comb:auto: bump version, push, `claude plugin marketplace update comb-marketplace && claude plugin update comb`, restart — or `claude --plugin-dir ~/dev/hive-comb`.
 
 ## Decisions
 - Execution: sequential in place.

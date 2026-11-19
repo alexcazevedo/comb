@@ -1,33 +1,33 @@
-# forge
+# comb
 
-The process layer of [hive](https://github.com/alexazevedo/hive): idea → spec → tickets → bounded execution. Installs on its own as the `forge` plugin for Claude Code and Codex; the hive app and `hive` protocol CLI are optional and live in the hive repo.
+The process layer of [hive](https://github.com/alexazevedo/hive): idea → spec → tickets → bounded execution. Installs on its own as the `comb` plugin for Claude Code and Codex; the hive app and `hive` protocol CLI are optional and live in the hive repo.
 
 Right-sized, spec-driven delivery for Claude Code and Codex. A raw idea becomes
 shipped code via grilling → agent-optimized tickets → model-routed subagent
 execution with bounded verification loops. The core primitive is a **rigor
 dial**: process weight scales with product class, never with tool habit.
 
-forge replaces heavyweight single-gear pipelines (7–10 stages, 6–7 human
+comb replaces heavyweight single-gear pipelines (7–10 stages, 6–7 human
 gates, identical ceremony for a throwaway prototype and a production system)
 with five skills and a hard interaction budget per mode.
 
 ## Pipeline
 
 ```
-idea    grill the raw idea → PRODUCT.md   (one question per message)
+grill   grill the raw idea → PRODUCT.md   (one question per message)
 plan    vertical-slice tickets with executable checks + model routing
 run     dispatch implementer subagents, bounded implement→check→fix loops
 status  board + cold resume from PRODUCT.md + STATE.md only
-auto    mode + vision → owner-proxy agent answers the grill, chains idea→plan→run, writes REPORT.md
+auto    mode + vision → owner-proxy agent answers the grill, chains grill→plan→run, writes REPORT.md
 ```
 
-Invoke skills as `/forge:idea` in Claude Code or `$forge:idea` in Codex (and
+Invoke skills as `/comb:grill` in Claude Code or `$comb:grill` in Codex (and
 likewise for `plan`, `run`, and `status`). Natural-language requests also
 trigger the skills.
 
 Upstream personas are deliberately outside the pipeline: run `/startup-advisor`
 (should this exist?) or `/product-manager` (smallest valuable slice?) first,
-save the result as `PRD.md` or `docs/discovery*.md`, and `forge:idea` consumes
+save the result as `PRD.md` or `docs/discovery*.md`, and `comb:grill` consumes
 it as pre-answered grill questions.
 
 ## The dial
@@ -47,13 +47,13 @@ test suites, no speculative abstraction, no refactoring beyond the ticket.
 ## Auto mode (owner proxy)
 
 End-to-end delivery with an owner proxy: supply only the product class and vision,
-the forge owner agent answers all grill questions and holds gate authority per mode.
-DIVERGE tags in the grill log measure whether the owner diverged from forge's
-recommendation—use them to tune the profile (`~/.forge/owner.md`) towards your
+the comb owner agent answers all grill questions and holds gate authority per mode.
+DIVERGE tags in the grill log measure whether the owner diverged from comb's
+recommendation—use them to tune the profile (`~/.comb/owner.md`) towards your
 preferences. Copy the template:
 
 ```bash
-cp templates/owner.md ~/.forge/owner.md
+cp templates/owner.md ~/.comb/owner.md
 ```
 
 Gate authority by mode:
@@ -67,10 +67,10 @@ Gate authority by mode:
 Headless run (e.g. CI/CD without terminal):
 
 ```bash
-claude -p --permission-mode auto "/forge:auto prototype '<vision>'"
+claude -p --permission-mode auto "/comb:auto prototype '<vision>'"
 ```
 
-Codex: `$forge:auto`. In headless mode, a gate blocks the run; re-running shows it again and
+Codex: `$comb:auto`. In headless mode, a gate blocks the run; re-running shows it again and
 approval requires an interactive reply via terminal or Remote Control.
 
 ## Install
@@ -78,17 +78,19 @@ approval requires an interactive reply via terminal or Remote Control.
 Claude Code:
 
 ```bash
-git clone https://github.com/alexazevedo/hive-forge ~/dev/hive-forge
-claude --plugin-dir ~/dev/hive-forge        # try it in one session
-# or add to your marketplace / plugin config for permanent install
-claude plugin validate ~/dev/hive-forge --strict
+git clone https://github.com/alexcazevedo/hive-comb ~/dev/hive-comb
+claude --plugin-dir ~/dev/hive-comb        # try it in one session
+# or install permanently from the marketplace
+claude plugin marketplace add alexcazevedo/hive-comb
+claude plugin install comb@comb-marketplace
+claude plugin validate ~/dev/hive-comb --strict
 ```
 
 Codex, from a local clone:
 
 ```bash
-codex plugin marketplace add ~/dev/hive-forge
-codex plugin add forge@forge-marketplace
+codex plugin marketplace add ~/dev/hive-comb
+codex plugin add comb@comb-marketplace
 ```
 
 The Claude manifest remains at `.claude-plugin/plugin.json`; the additive
@@ -138,7 +140,7 @@ is confined to the worktree. Scope local tickets to haiku-class work only.
 ```
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
-skills/{idea,plan,run,status,auto}/SKILL.md   # the whole process, ≤600 lines total
+skills/{grill,plan,run,status,auto}/SKILL.md   # the whole process, ≤600 lines total
 agents/{implementer-{haiku,sonnet,opus},owner,reviewer}.md # Claude defs; Codex uses bodies inline
 templates/{PRODUCT,ticket,STATE,owner}.md
 ```

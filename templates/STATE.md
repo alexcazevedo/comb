@@ -7,7 +7,7 @@
 <ready tickets in dependency order>
 
 ## Decisions
-- execution: <sequential | parallel×N>   <!-- set once by forge:run, reused on resume -->
+- execution: <sequential | parallel×N>   <!-- set once by comb:run, reused on resume -->
 - <durable choices made mid-run, one line each>
 
 ## Blockers

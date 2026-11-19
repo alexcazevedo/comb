@@ -1,9 +1,9 @@
 ---
 name: plan
-description: Use after PRODUCT.md exists to slice the work into agent-ready tickets with executable checks and model routing. Triggers on /forge:plan or $forge:plan.
+description: Use after PRODUCT.md exists to slice the work into agent-ready tickets with executable checks and model routing. Triggers on /comb:plan or $comb:plan.
 ---
 
-# forge:plan — tickets
+# comb:plan — tickets
 
 Read PRODUCT.md first; its `mode` sets every budget below. Planning always
 runs on the strongest available model — plan quality gates everything
@@ -72,7 +72,7 @@ Mixed routing cuts spend 40–60% versus running everything on one big model.
 
 Tag `model: local` only when PRODUCT.md says `routing_profile: cloud+local`,
 and only on haiku-class tickets. Never silently substitute local for cloud
-or cloud for local. Execution mechanics live in forge:run — the plan only
+or cloud for local. Execution mechanics live in comb:run — the plan only
 tags.
 
 ## Self-check before the summary
@@ -100,7 +100,7 @@ which are independent (parallelizable). Then:
 
 Nothing runs before this approval.
 
-Under `owner: agent`: prototype / mvp dispatch `forge:owner` once with
+Under `owner: agent`: prototype / mvp dispatch `comb:owner` once with
 PRODUCT.md + the ticket summary, asking "APPROVE or list blocking
 objections." Parse `ANSWER`/`TAG`: AGREE → proceed; DIVERGE → revise
 tickets once, then proceed. production: print the summary, say approval

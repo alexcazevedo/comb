@@ -31,5 +31,5 @@ signatures, element ids, env vars, commands and flags, storage keys, ports.
 ## Not included
 - <explicit scope boundary so the agent doesn't gold-plate>
 
-<!-- forge:run appends `## Handoff from NN` sections here as upstream
+<!-- comb:run appends `## Handoff from NN` sections here as upstream
      tickets finish; leave them in place. -->

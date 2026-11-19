@@ -2,7 +2,7 @@
 mode: prototype                # prototype | mvp | production
 routing_profile: cloud         # cloud | cloud+local (local is opt-in, never a default)
 parallel_default: sequential   # sequential | parallel
-owner: human                   # human | agent (set by forge:auto)
+owner: human                   # human | agent (set by comb:auto)
 # local_exec: ollama launch claude --model <local-model> --yes -- -p "{ticket}"
 #   ^ required iff routing_profile is cloud+local — command template the nested
 #     local harness runs inside the ticket worktree. Alternatives:

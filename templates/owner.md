@@ -1,4 +1,4 @@
-<!-- copy to ~/.forge/owner.md — read by the forge owner agent when PRODUCT.md says owner: agent -->
+<!-- copy to ~/.comb/owner.md — read by the comb owner agent when PRODUCT.md says owner: agent -->
 
 # Owner profile
 
@@ -17,7 +17,7 @@
 - <…>
 
 ## Non-negotiables
-- <Hard lines. They override the vision and forge's recommendation.>
+- <Hard lines. They override the vision and comb's recommendation.>
 
 ## Escalate when
 - <Decisions the owner agent must hand back to you, e.g. spending money.>
