@@ -25,6 +25,24 @@ they said, so "yes" is a valid answer.
 Question 2: greenfield or existing repo? If the cwd already answers this,
 don't ask — confirm in passing.
 
+## The UI dial (only when the product has a screen)
+
+No screen (CLI, API, library, job) → write `ui: none`, ask nothing. Otherwise
+one question, counted against the cap: how much UI rigor? Recommend the mode's
+default. Any level is valid in any mode — `polished` on a prototype or mvp
+means production-like UI on the same shortcut-friendly code.
+
+| ui | default for | buys |
+|---|---|---|
+| lean | prototype | a decided look: DESIGN.md tokens + craft floor, linted, one look at the render |
+| crafted | mvp | + empty/loading/error states, responsive layout, a look per screen |
+| polished | production | + two directions weighed, motion, themes, accessibility, a fresh-eyes review ticket |
+
+In the same message, invite a reference: a brand, a site, or a thing from
+the product's own world the UI should feel like. Record it in PRODUCT.md
+under What / why. Details of each level live in comb:design — never grill
+on colours or fonts.
+
 ## How to grill
 
 - ONE question per message. Multiple-choice preferred. ALWAYS include your
@@ -56,7 +74,7 @@ STATE.md Blockers, tell the user. Gate unchanged: prototype/mvp say
 
 Write from templates/PRODUCT.md at the repo root. Frontmatter: `mode`,
 `routing_profile` (`cloud` unless the user themselves brought up local
-models — never enable `cloud+local` silently), `parallel_default`. Body:
+models — never enable `cloud+local` silently), `parallel_default`, `ui`. Body:
 what/why, primary user story, out-of-scope list, success demo ("done when I
 can ___", one sentence). Respect the mode's word cap.
 

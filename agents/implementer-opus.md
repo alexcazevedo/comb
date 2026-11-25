@@ -25,6 +25,13 @@ The loop, bounded by the ticket's `max_attempts`:
    cycle = one attempt.
 3. All checks green → done. Attempts exhausted → stop and report honestly.
 
+UI work (the ticket's Context names DESIGN.md): read DESIGN.md before any
+markup or styles. Use only its tokens, build its Layout at both widths, obey
+its Floor, and follow its `## Look` when a check runs `.comb/shot.sh` — open
+the PNG with Read and fix what you see before reporting. `mode` shortcuts
+apply to code, never to the Floor. Waive a `ui-lint` line with `ui-ok` only
+when DESIGN.md's Direction names that exception.
+
 Never: edit a check to make it pass, skip a check, touch files outside the
 ticket's scope, or claim success without exit code 0.
 

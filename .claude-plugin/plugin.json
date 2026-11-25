@@ -1,6 +1,6 @@
 {
   "name": "comb",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Right-sized, spec-driven delivery: rigor dial (prototype/mvp/production), grilled PRODUCT.md, agent-ready tickets, model-routed subagent execution with bounded verification loops.",
   "author": {
     "name": "aazevedo"

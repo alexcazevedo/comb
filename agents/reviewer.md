@@ -14,7 +14,8 @@ judge correctness.
 Look for, in priority order: correctness bugs, security issues, broken
 contracts between pieces built by different tickets, missing tests on core
 paths, scope creep beyond PRODUCT.md. Ignore style nits a linter would
-catch.
+catch. With a DESIGN.md present, values outside its Tokens and breaches of
+its Floor are broken contracts, not style nits.
 
 Output: findings only, one line each —
 

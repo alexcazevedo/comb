@@ -9,12 +9,13 @@ dial**: process weight scales with product class, never with tool habit.
 
 comb replaces heavyweight single-gear pipelines (7–10 stages, 6–7 human
 gates, identical ceremony for a throwaway prototype and a production system)
-with five skills and a hard interaction budget per mode.
+with six skills and a hard interaction budget per mode.
 
 ## Pipeline
 
 ```
 grill   grill the raw idea → PRODUCT.md   (one question per message)
+design  decide the look once → DESIGN.md (tokens + craft floor), UI lint, screenshot looks
 plan    vertical-slice tickets with executable checks + model routing
 run     dispatch implementer subagents, bounded implement→check→fix loops
 status  board + cold resume from PRODUCT.md + STATE.md only
@@ -22,7 +23,7 @@ auto    mode + vision → owner-proxy agent answers the grill, chains grill→pl
 ```
 
 Invoke skills as `/comb:grill` in Claude Code or `$comb:grill` in Codex (and
-likewise for `plan`, `run`, and `status`). Natural-language requests also
+likewise for `design`, `plan`, `run`, and `status`). Natural-language requests also
 trigger the skills.
 
 Upstream personas are deliberately outside the pipeline: run `/startup-advisor`
@@ -43,6 +44,41 @@ it as pre-answered grill questions.
 
 Prototype mode explicitly PERMITS what heavyweight processes forbid: no unit
 test suites, no speculative abstraction, no refactoring beyond the ticket.
+
+## The UI dial
+
+Generic, AI-looking UI is undecided UI: each implementer sees one ticket and
+fills every unmade visual choice with the model's defaults. `comb:design`
+decides the look once, on the strongest model, in `DESIGN.md` — a direction
+derived from the product's own world, design tokens, a layout per width and a
+craft floor — and every UI ticket is bound to it. Before writing it,
+it checks the direction against shipped products found on Mobbin, Refero,
+Awwwards, Godly/Recent and Land-book: structure and the level of finish are
+taken, palette and type never are. `comb:plan` runs it
+automatically when `PRODUCT.md` says `ui:` is not `none`.
+
+| `ui:` | lean | crafted | polished |
+|---|---|---|---|
+| default for mode | prototype | mvp | production |
+| DESIGN.md | direction, tokens, layout, floor | + states, voice, motion rules | + rejected direction, themes, a11y, browser surfaces |
+| references | 2 shipped products looked at | 3 | 5 |
+| every UI ticket | `ui-lint` (regex, zero tokens) | same | same |
+| looks at the render | last UI ticket, 390px, 1 round | each new screen, 390 + 1440, ≤2 rounds | same, ≤3 rounds |
+| review | — | — | fresh-context `ui-review` ticket on the strongest model |
+| added cost | one planning step; UI tickets ~30% dearer | more looks per screen (unmeasured) | + a review ticket costing more than a build ticket |
+
+`ui:` is independent of `mode:`. Want production-like UI on a throwaway
+prototype? Answer `polished` at the grill, or run `/comb:design polished`
+later — only the UI budget rises; tests, shortcuts and approvals stay at the
+mode's level. `/comb:design review` re-checks built UI at any time.
+
+Two scripts are copied into the project's `.comb/`: `ui-lint.sh` (fails on
+raw colour literals outside tokens, `transition: all`, gradient text, AI
+purple, ALL-CAPS labels, emoji icons, buzzwords, placeholder names) and
+`shot.sh` (headless Chrome screenshots + console log, so the agent looks at
+what it built). Cost figures come from one test run per level (single-file
+prototype, sonnet builder, opus reviewer): build 55k tokens without
+DESIGN.md, 72k at lean; the polished review ticket used 97k.
 
 ## Auto mode (owner proxy)
 
@@ -68,6 +104,7 @@ Headless run (e.g. CI/CD without terminal):
 
 ```bash
 claude -p --permission-mode auto "/comb:auto prototype '<vision>'"
+claude -p --permission-mode auto "/comb:auto prototype ui=polished '<vision>'"   # production-like UI
 ```
 
 Codex: `$comb:auto`. In headless mode, a gate blocks the run; re-running shows it again and
@@ -140,9 +177,11 @@ is confined to the worktree. Scope local tickets to haiku-class work only.
 ```
 .claude-plugin/plugin.json
 .codex-plugin/plugin.json
-skills/{grill,plan,run,status,auto}/SKILL.md   # the whole process, ≤600 lines total
+skills/{grill,design,plan,run,status,auto}/SKILL.md   # the whole process, ≤600 lines total
+skills/design/{ui-lint,shot}.sh                # copied into a project's .comb/ by comb:design
+skills/design/references.md                    # the five reference galleries and how an agent reaches each
 agents/{implementer-{haiku,sonnet,opus},owner,reviewer}.md # Claude defs; Codex uses bodies inline
-templates/{PRODUCT,ticket,STATE,owner}.md
+templates/{PRODUCT,DESIGN,ticket,STATE,owner}.md
 ```
 
 ## Philosophy

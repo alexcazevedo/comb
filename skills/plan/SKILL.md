@@ -9,6 +9,15 @@ Read PRODUCT.md first; its `mode` sets every budget below. Planning always
 runs on the strongest available model — plan quality gates everything
 downstream. If the current session model is weaker, say so before planning.
 
+## UI first (PRODUCT.md `ui:` is lean, crafted or polished)
+
+Invoke comb:design before slicing. It writes DESIGN.md and installs
+`.comb/ui-lint.sh` and `.comb/shot.sh`; then apply its "Ticket rules" to
+every ticket that touches a screen. `ui:` missing and the product has a
+screen → use the mode's default (prototype lean, mvp crafted, production
+polished) and write it into PRODUCT.md. The `ui:` level changes UI tickets
+only; every other budget still comes from `mode`.
+
 ## Slicing
 
 - Vertical slices (tracer bullets): every ticket cuts through to observable
@@ -86,13 +95,16 @@ do not hand the user a broken plan:
 - `max_attempts` matches the mode; `model` is one of the four tiers
 - every shared name appears in a producer's `## Interface` and in each
   consumer's Context
+- `ui:` not none: DESIGN.md exists, every UI ticket names it in Context and
+  runs `ui-lint`, the looks and the review ticket match comb:design's dial
 - a `hive` binary on PATH: `hive init tickets/` must load the set (it
   rejects duplicate ids, unknown deps and cycles)
 
 ## Output + gate
 
 Print a one-screen summary: tickets in dependency order, model per ticket,
-which are independent (parallelizable). Then:
+which are independent (parallelizable). With a DESIGN.md, include its `ui:`
+level and Direction lines — the look is approved here, with the plan. Then:
 
 - prototype / mvp: ONE gate — approve PRODUCT.md + tickets together.
   (prototype: approval 1 of 1. mvp: approval 1 of 2.)

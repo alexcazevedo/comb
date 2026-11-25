@@ -22,7 +22,8 @@ recorded under STATE.md → Decisions the same way.
 ## Dispatch (per ticket)
 
 Fresh subagent, never inherits session history. Prompt = the ticket file +
-PRODUCT.md + the ticket's listed file paths. Detect the host from its available
+PRODUCT.md + the ticket's listed file paths, plus DESIGN.md whenever the
+ticket's Context names it. Detect the host from its available
 agent primitives; do not ask the user which host is running.
 
 - Claude Code: select the custom agent definition from the ticket's `model:`

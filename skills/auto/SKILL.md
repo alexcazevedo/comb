@@ -14,7 +14,9 @@ pending production gate: show it again, wait for the human.
 
 ## Mode — the only question
 
-`/comb:auto [mode] "<vision>"`, mode = prototype | mvp | production.
+`/comb:auto [mode] [ui=<level>] "<vision>"`, mode = prototype | mvp |
+production. `ui=lean|crafted|polished` is optional and never asked: absent →
+the mode's default (comb:grill's UI dial), and the owner is not consulted.
 Mode missing → ask exactly ONE question with a recommended mode (so "yes"
 works); if the vision is missing too, ask for both in that same message
 (vision alone missing: ask only that). Nothing else is ever asked. Then
@@ -26,7 +28,7 @@ say once: no further prompts except production gates; headless runs need
 Invoke each stage via the Skill tool (Codex: `$comb:grill` …), follow its
 `owner: agent` rules, never stop between stages ("next: …" = invoke now).
 
-1. comb:grill with the vision, `mode: <mode>`, `owner: agent` (dial
+1. comb:grill with the vision, `mode: <mode>`, `ui: <level>`, `owner: agent` (dials
    answered; comb:owner takes the grill). PRODUCT.md frontmatter gets
    `mode: <mode>` and `owner: agent` the moment it is written.
 2. comb:plan — owner approval (production: human).
